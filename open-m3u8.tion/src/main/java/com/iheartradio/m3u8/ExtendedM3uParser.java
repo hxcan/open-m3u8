@@ -38,6 +38,7 @@ class ExtendedM3uParser extends BaseM3uParser {
         );
     }
 
+//     03-06 14:00:46.879  3471  3471 W System.err: com.iheartradio.m3u8.ParseException: open m3u8 does not support this version: EXT-X-VERSION - #EXT-X-VERSION:6
     @Override
     public Playlist parse() throws IOException, ParseException, PlaylistException {
         validateAvailable();

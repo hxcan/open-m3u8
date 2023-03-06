@@ -1,1 +1,3 @@
-rootProject.name = 'open-m3u8'
+// rootProject.name = 'open-m3u8'
+
+include ':open-m3u8.tion'
