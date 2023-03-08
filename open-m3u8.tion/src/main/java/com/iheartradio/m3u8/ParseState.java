@@ -15,6 +15,7 @@ class ParseState implements IParseState<Playlist> {
     private MasterParseState mMasterParseState;
     private MediaParseState mMediaParseState;
     private boolean mIsExtended;
+    private boolean mIsIndependentSegments;
     private int mCompatibilityVersion = NONE;
 
     public StartData startData;
@@ -61,6 +62,14 @@ class ParseState implements IParseState<Playlist> {
 
     public void setExtended() {
         mIsExtended = true;
+    }
+    
+    public boolean isIndependentSegments() {
+        return mIsIndependentSegments;
+    }
+
+    public void setIndependentSegments() {
+        mIsIndependentSegments = true;
     }
     
     public void setIsIframesOnly() throws ParseException {

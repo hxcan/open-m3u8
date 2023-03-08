@@ -57,11 +57,11 @@ class ExtLineParser implements LineParser {
 
         @Override
         public void parse(String line, ParseState state) throws ParseException {
-            if (state.isExtended()) {
+            if (state.isIndependentSegments()) {
                 throw ParseException.create(ParseExceptionType.MULTIPLE_EXT_TAG_INSTANCES, getTag(), line);
             }
 
-            state.setExtended();
+            state.setIndependentSegments();
         }
     };
     
