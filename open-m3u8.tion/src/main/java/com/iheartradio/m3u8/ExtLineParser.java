@@ -44,6 +44,27 @@ class ExtLineParser implements LineParser {
         }
     };
     
+    static final IExtTagParser EXT_X_INDEPENDENT_SEGMENTS = new IExtTagParser()  {
+        @Override
+        public String getTag() {
+            return Constants.EXT_X_INDEPENDENT_SEGMENTS_TAG;
+        }
+
+        @Override
+        public boolean hasData() {
+            return false;
+        }
+
+        @Override
+        public void parse(String line, ParseState state) throws ParseException {
+            if (state.isExtended()) {
+                throw ParseException.create(ParseExceptionType.MULTIPLE_EXT_TAG_INSTANCES, getTag(), line);
+            }
+
+            state.setExtended();
+        }
+    };
+    
     static final IExtTagParser EXT_UNKNOWN_HANDLER = new IExtTagParser() {
         @Override
         public String getTag() {
